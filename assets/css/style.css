@@ -45,7 +45,7 @@ p {
   background-color: #d9514eff;
   font-size: 4rem;
   text-align: center;
-  color: var(--white);
+  color: #fff;
   padding: 10px 0;
   width: 100%;
   margin-bottom: 2rem;
@@ -74,7 +74,7 @@ p {
 .quiz-box #question {
   font-size: 1.8rem;
   font-weight: 600;
-  color:#d9514eff;
+  color:#ddd;
   border: 1px solid #ddd;
   border-width: 1px 0;
   padding: 5px 0;
@@ -100,7 +100,7 @@ p {
 .btn:hover {
   cursor: pointer;
   background-color: #2da8d8ff ;
-  color: #fff;
+  color: #ddd;
 }
 
 .btn:active {
@@ -123,7 +123,7 @@ p {
 .quiz-repeat a {
   font-size: 1.6rem;
   font-weight: 600;
-  color: #fff;
+  color: #ddd;
   text-decoration: none;
   background-color: #d9514eff;
   padding: 1rem;
@@ -133,4 +133,9 @@ p {
 
 .quiz-repeat a:hover {
   background-color: #2da8d8ff;;
+}
+
+footer p {
+  font-size: 10px;
+  color: #ddd;
 }
