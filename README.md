@@ -2,7 +2,7 @@
 
 ## Porpuse
 
-This application is made to test your knowledge about HTML, CSS and JS.
+This application was made to test your knowledge about HTML, CSS and JS.
 
 ## Built With
 
