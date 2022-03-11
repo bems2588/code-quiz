@@ -109,7 +109,7 @@ p {
 }
 
 #score {
-  color: #2a2b2dff;
+  color: #ddd;
   text-align: center;
   font-size: 2rem;
   margin-bottom: 4rem;
@@ -138,4 +138,19 @@ p {
 footer p {
   font-size: 10px;
   color: #ddd;
+}
+
+.score-initials {
+  position: relative;
+  left: 100px;
+  
+}
+
+#submit-button {
+  background-color: #d9514eff;
+  color: #ddd;
+  padding: 8px;
+  border-radius: 10px;
+  font-weight: 600;
+  margin-bottom: 3rem; 
 }

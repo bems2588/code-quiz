@@ -14,12 +14,16 @@ class Quiz {
       if (this.getQuestionIndex().isCorrectAnswer(answer)) {
           this.score++;
       }
+      else {
+          quizTime = quizTime-60;
+          console.log(quizTime);
+      }
       this.questionIndex++;
   }
 
-  isEnded() {
+  gameOver() {
       return this.questionIndex === this.questions.length;
-  }
+  };
 }
 
 // Create a question Class
@@ -37,7 +41,7 @@ class Question {
 
 // NOW DISPLAY THE QUESTIONS
 function displayQuestion() {
-  if (quiz.isEnded()) {
+  if (quiz.gameOver()) {
       showScores();
   } else {
       // show question
@@ -68,24 +72,11 @@ function guess(id, guess) {
 // SHOW QUIZ PROGRESS
 function showProgress() {
   let currentQuestionNumber = quiz.questionIndex + 1;
-  let ProgressElement = document.getElementById("progress");
-  ProgressElement.innerHTML =
+  let progressElement = document.getElementById("progress");
+  progressElement.innerHTML =
       `Question ${currentQuestionNumber} of ${quiz.questions.length}`;
 };
 
-// SHOW SCORES
-function showScores() {
-  let quizEndHTML =
-      `
-  <h1>Quiz Completed</h1>
-  <h2 id='score'> Your scored: ${quiz.score} of ${quiz.questions.length}</h2>
-  <div class="quiz-repeat">
-      <a href="index.html">Take Quiz Again</a>
-  </div>
-  `;
-  let quizElement = document.getElementById("quiz");
-  quizElement.innerHTML = quizEndHTML;
-};
 
 // create questions here
 let questions = [
@@ -114,13 +105,18 @@ displayQuestion();
 
 
 // Add A CountDown for the Quiz
-let time = 10;
+let time = 5;
 let quizTimeInMinutes = time * 60 * 60;
 let quizTime = quizTimeInMinutes / 60;
 
 let counting = document.getElementById("count-down");
 
+counting.innerHTML = `Click to start`;
+counting.addEventListener("click", startCountdown);
+
+
 function startCountdown() {
+    counting.removeEventListener("click", startCountdown);
   let quizTimer = setInterval(function() {
       if (quizTime <= 0) {
           clearInterval(quizTimer);
@@ -134,4 +130,38 @@ function startCountdown() {
   }, 1000);
 }
 
-startCountdown();
+
+//SHOW SCORE
+
+function showScores() {
+    let quizEndHTML =
+      `<h1>Quiz Completed</h1>
+          <h2 id="score"> Your scored: ${quiz.score} of ${quiz.questions.length}</h2>
+          <div class="score-initials">
+          <input id="initials" type="text">
+          </input>
+          <button id="submit-button">Submit your initials</button></div>
+          <div class="quiz-repeat">
+               <a href="index.html">Take Quiz Again</a>
+          </div>`
+    ;
+    let quizElement = document.getElementById("quiz");
+    quizElement.innerHTML = quizEndHTML;
+    document.getElementById("submit-button").addEventListener("click", function(){
+      var initials = document.getElementById("initials").value;
+  
+      var scoreArr = [];
+      //get old score arr out of local storage
+      var playerScore = {
+          initials: initials,
+          score: quiz.score,
+      };
+      scoreArr.push(playerScore);
+      console.log(scoreArr);
+      localStorage.setItem("scoreArr", JSON.stringify(scoreArr));
+  
+      var finalScore = document.createElement("h1");
+      finalScore.innerText = `Hey ${initials}, your score is, ${quiz.score}`;
+      quizElement.append(finalScore);
+    });
+  };
