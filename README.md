@@ -2,7 +2,9 @@
 
 ## Porpuse
 
-This application was made to test your knowledge about HTML, CSS and JS.
+This application will test your knowledge about HTML, CSS and JS. 
+The player has 5 minutes to finish the quiz. One minute is deducted for each wrong answer.
+The game ends when the player answers all the questions or runs out of time.
 
 ## Built With
 
