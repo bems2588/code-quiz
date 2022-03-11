@@ -1,6 +1,6 @@
 # code-quiz
 
-## Porpuse
+## Purpose
 
 This application will test your knowledge about HTML, CSS and JS. 
 The player has 5 minutes to finish the quiz. One minute is deducted for each wrong answer.
