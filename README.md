@@ -18,6 +18,11 @@ The game ends when the player answers all the questions or runs out of time.
 
 https://bems2588.github.io/code-quiz/
 
-## Contribution
+## Contributors
 
-Made by Bruno Marcenaro
+* Bruno Marcenaro
+
+## Personal Info
+
+* Visit my Github page at  https://github.com/bems2588
+* Contact me at bems2588@gmail.com
